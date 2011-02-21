@@ -1,0 +1,30 @@
+%style{:type => "text/css", :media => "screen"}
+  :plain
+    table {
+      width: 500px;
+      font: 12px;
+      border: 1px solid #66a3d3;
+      text-align: center;
+    }
+    th {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    td {
+      text-align: right;
+      border: 1px solid  #66a3d3;
+    }
+
+%table
+  %tr
+    - @header.each do |h|
+      %th
+        =h
+  - @result.each do |row|
+    %tr
+    - row.each do |v|
+      %td
+        =v
+
+%a{:href => '/report.csv'}
+  Download (csv)
