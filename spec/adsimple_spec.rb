@@ -27,10 +27,10 @@ describe "AdSimple" do
   end
 
   describe "get /report.html" do
-    it "should redirect" do
-      get '/a/12356.click'
-      last_response.original_headers["Set-Cookie"].should =~ /^ads=/
-      last_response.headers["Location"].should == "http://example.com"
+    it "should get report" do
+      get '/report.html'
+      last_response.should be_ok
+      last_response.should have_selector ('table')
     end
   end
 
